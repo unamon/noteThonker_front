@@ -1,0 +1,58 @@
+.placeholder-content { 
+    padding: 10px 30px;
+    color: #f2f2f28a;
+}
+
+.note-content { 
+    width: 100%;
+    background: hsl(0,0%,95%);
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    min-height: 5rem;
+    border-radius: 20px;
+
+    font-size: 16px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+.note-title { 
+    color: #f2f2f2;
+    line-height: 100%;
+    padding: 0;
+    margin-top: 2rem;
+    margin-left: 20px;
+}
+.button-container {
+    display: flex;
+    justify-content: end;    
+}
+.button-container button:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    letter-spacing: 2%;    
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.button.submit{
+    background:  hsl(0,0%,95%);
+    color: hsl(0, 0%, 13%);
+}
+.button.cancel {
+    background: hsl(0, 0%, 13%);
+    color: hsl(0,0%,95%);
+    border: 2px solid hsl(0,0%,95%);
+    padding: 8px 18px;
+    transition: .2s;
+}
+.button.cancel:hover{
+    background:  hsl(0,0%,95%);
+    color: hsl(0, 0%, 13%);
+    transition: .2s;
+}

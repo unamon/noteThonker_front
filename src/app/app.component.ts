@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NOTES } from 'src/data';
+import {Note} from "../model/note"
+import { NoteCardComponent } from './note-card/note-card.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'noteThonker_front';
+
+  notes = NOTES
+
 }

@@ -1,0 +1,21 @@
+<div (click)="noteClicked()" [ngClass]="noteClasses()" [id]="noteId">
+  <h2 class="note-title">
+    {{note.title}}
+  </h2>
+
+  <div *ngIf="selected; else elseText">
+    <div contenteditable class="note-content">
+      {{note.content}}
+    </div>
+    <div class="button-container">
+      <button class="button cancel" (click)="unSelect(); $event.stopPropagation();">Cancel</button>
+      <button class="button submit">Submit</button>
+    </div>
+
+  </div>
+  <ng-template #elseText>
+    <div class="placeholder-content">
+      {{note.content}}
+    </div>
+  </ng-template>
+</div>

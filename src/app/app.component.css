@@ -1,16 +1,4 @@
-.note-card { 
-    background: hsl(0,0%,95%);
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 10px 20px;
-    min-height: 5rem;
-    word-wrap: break-word;
-}
-.note-title { 
-    color: #f2f2f2;
-    line-height: 100%;
-    margin-bottom: 10px;
-}
+
 .note-list {
     width: 50vw;
     height: 100vw;

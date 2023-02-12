@@ -1,9 +1,4 @@
 <div class="note-list">
-  <h2 class="note-title">
-    note title
-  </h2>
-  <div class="note-card">
-    hello world
-  </div>
+  <app-note-card *ngFor="let note of notes;index as i" [note]="note" [noteId] = "i"></app-note-card>
 </div>
 
