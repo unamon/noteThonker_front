@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from 'src/model/note';
 
@@ -7,6 +8,8 @@ import { Note } from 'src/model/note';
   styleUrls: ['./note-card.component.css']
 })
 export class NoteCardComponent {
+@Output("getNotes")
+getRequestEmitter = new EventEmitter();
 @Input()
 note:Note;
 @Input()
@@ -26,8 +29,14 @@ noteClicked() {
 }
 
 unSelect() {
-  this.selected = false
-
+this.selected = false
 }
 
+submitNote() { 
+  this.http.put("http://localhost:4200/" + this.noteId,{})
+  this.getRequestEmitter.emit()
+  console.log("sent")
+}
+
+constructor(private http:HttpClient){}
 } 

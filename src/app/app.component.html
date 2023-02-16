@@ -1,4 +1,8 @@
+<h1>NoteThonker</h1>
+
 <div class="note-list">
-  <app-note-card *ngFor="let note of notes;index as i" [note]="note" [noteId] = "i"></app-note-card>
+  <app-note-card *ngFor="let note of notes$ | async" [note]="note" [noteId]="note.id"
+  (getNotes)="onGetNotes()"
+  ></app-note-card>
 </div>
 

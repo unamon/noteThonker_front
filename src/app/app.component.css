@@ -1,4 +1,8 @@
-
+h1 { 
+    margin: 1em auto 0 auto;
+	color: white;
+	text-align: center;
+}
 .note-list {
     width: 50vw;
     height: 100vw;

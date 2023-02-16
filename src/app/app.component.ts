@@ -1,8 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NOTES } from 'src/data';
+import { Component } from '@angular/core';
+import {Observable} from 'rxjs';
 import { Note } from '../model/note';
-import { NoteCardComponent } from './note-card/note-card.component';
-import { HttpClient } from '@angular/common/http';
+import {NoteService} from './note-service.service';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +9,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'noteThonker_front';
-  notes: Note[];
-
-  getNotes(){
-    this.http.get("http://localhost:8080/notes").subscribe(
-      data => {
-        this.notes = <Note[]>data
-      })
-  }
-  
-  ngOnInit() {
-    this.getNotes()
-  }
-  constructor(private http: HttpClient) {}
-
-  onGetNotes() { 
-    this.getNotes()
-  }
+	title = 'noteThonker_front';
+	notes:Note[]
+    notes$: Observable<Note[]>
+	getNotes() {
+	}
+	ngOnInit() {
+	}
+	constructor(
+			private noteService:NoteService
+	) {
+			this.notes$ = noteService.getNotes()
+	}
+	onGetNotes() {
+		this.getNotes()
+		alert("Notes got")
+	}
 }
