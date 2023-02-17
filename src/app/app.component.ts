@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Observable} from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import {Observable, concat, flatMap, of} from 'rxjs';
 import { Note } from '../model/note';
 import {NoteService} from './note-service.service';
 
@@ -12,16 +12,23 @@ export class AppComponent {
 	title = 'noteThonker_front';
 	
     notes$: Observable<Note[]>
-
-	reloadNotes() {
-			const reload$ = this.noteService.getNotes();
+    notes
+	executeRequest(incRequest$:Observable<unknown | Note>){
+			concat(incRequest$, this.notes$).subscribe(x => this.notes = x)
+		//incRequest$.subscribe()
+		//this.notes$ = this.noteService.getNotes() 
 	}
-	ngOnInit() {
+	trackItem(index:Number, note:Note) {
+			return note.id
 	}
 	constructor(
-			private noteService:NoteService
-	) {
+			private noteService:NoteService,
+			) {
 			this.notes$ = noteService.getNotes()
-	}
+			this.notes$.subscribe(
+					data=> this.notes = data
+			)
+			}
+
 
 }

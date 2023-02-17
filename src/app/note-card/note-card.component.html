@@ -8,6 +8,7 @@
       {{note.content}}
     </div>
     <div class="button-container">
+	  <button class="button cancel" (click)="deleteNote()">Delete</button>
       <button class="button cancel" (click)="unSelect(); $event.stopPropagation();">Cancel</button>
       <button class="button submit" (click)="submitNote()">Submit</button>
     </div>

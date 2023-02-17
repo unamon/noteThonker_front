@@ -2,23 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from 'src/model/note';
 import {NoteService} from '../note-service.service';
-
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-note-card',
   templateUrl: './note-card.component.html',
   styleUrls: ['./note-card.component.css']
 })
 export class NoteCardComponent {
-@Output("getNotes")
-getRequestEmitter = new EventEmitter();
+@Output("reqNotes")
+requestEmitter = new EventEmitter<Observable<unknown | Note>>();
 @Input()
 note:Note;
 @Input()
 noteId:Number;
 @Input()
 selected = false;
-// @Input()
-// elseText;string;
+
 noteClasses()  { 
   return this.selected ? "selected" : ""
 }
@@ -33,9 +32,11 @@ unSelect() {
 this.selected = false
 }
 
+deleteNote() { 
+  this.requestEmitter.emit(this.noteService.deleteNote(this.noteId))
+}
 submitNote() { 
-  this.noteService.deleteNote(this.noteId).subscribe()
-  this.getRequestEmitter.emit()
+  this.requestEmitter.emit()
   console.log("sent")
 }
 

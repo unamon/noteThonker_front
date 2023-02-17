@@ -1,8 +1,8 @@
 <h1>NoteThonker</h1>
 
 <div class="note-list">
-  <app-note-card *ngFor="let note of notes$ | async" [note]="note" [noteId]="note.id"
-  (getNotes)="reloadNotes()"
+  <app-note-card *ngFor="let note of notes;" [note]="note" [noteId]="note.id"
+  (reqNotes)="executeRequest($event)"
   ></app-note-card>
 </div>
 
