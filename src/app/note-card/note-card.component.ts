@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from 'src/model/note';
+import {NoteService} from '../note-service.service';
 
 @Component({
   selector: 'app-note-card',
@@ -33,10 +34,10 @@ this.selected = false
 }
 
 submitNote() { 
-  this.http.put("http://localhost:4200/" + this.noteId,{})
+  this.noteService.deleteNote(this.noteId).subscribe()
   this.getRequestEmitter.emit()
   console.log("sent")
 }
 
-constructor(private http:HttpClient){}
+constructor(private noteService:NoteService){}
 } 

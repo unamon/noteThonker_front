@@ -10,9 +10,11 @@ import {NoteService} from './note-service.service';
 })
 export class AppComponent {
 	title = 'noteThonker_front';
-	notes:Note[]
+	
     notes$: Observable<Note[]>
-	getNotes() {
+
+	reloadNotes() {
+			const reload$ = this.noteService.getNotes();
 	}
 	ngOnInit() {
 	}
@@ -21,8 +23,5 @@ export class AppComponent {
 	) {
 			this.notes$ = noteService.getNotes()
 	}
-	onGetNotes() {
-		this.getNotes()
-		alert("Notes got")
-	}
+
 }

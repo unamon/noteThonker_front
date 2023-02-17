@@ -2,7 +2,7 @@
 
 <div class="note-list">
   <app-note-card *ngFor="let note of notes$ | async" [note]="note" [noteId]="note.id"
-  (getNotes)="onGetNotes()"
+  (getNotes)="reloadNotes()"
   ></app-note-card>
 </div>
 
