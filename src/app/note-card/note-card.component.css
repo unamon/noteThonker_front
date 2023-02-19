@@ -3,8 +3,17 @@
 }
 
 .placeholder-content { 
-    padding: 10px 30px;
     color: #f2f2f28a;
+    width: 100%;
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    min-height: 5rem;
+    border-radius: 20px;
+
+    font-size: 16px;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .note-content { 
