@@ -10,13 +10,16 @@ import {NoteService} from './note-service.service';
 })
 export class AppComponent {
 	title = 'noteThonker_front';
-	
-    notes$: Observable<Note[]>
-    notes
+  notes:Note[]
+  notes$: Observable<Note[]>
+
 	executeRequest(incRequest$:Observable<unknown | Note>){
-			concat(incRequest$, this.notes$).subscribe(x => this.notes = x)
-		//incRequest$.subscribe()
-		//this.notes$ = this.noteService.getNotes() 
+	concat(incRequest$, this.noteService.getNotes()).subscribe(
+					data => {
+									this.notes = (data as Note[])
+					}
+	)	
+
 	}
 	trackItem(index:Number, note:Note) {
 			return note.id
@@ -24,10 +27,10 @@ export class AppComponent {
 	constructor(
 			private noteService:NoteService,
 			) {
-			this.notes$ = noteService.getNotes()
-			this.notes$.subscribe(
-					data=> this.notes = data
-			)
+				noteService.getNotes().subscribe(
+								data => this.notes = data
+				)
+				this.notes$ = of(this.notes)
 			}
 
 
