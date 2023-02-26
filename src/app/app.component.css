@@ -3,6 +3,17 @@ h1 {
 	color: white;
 	text-align: center;
 }
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-input { 
+    margin: 1rem auto;
+    width: 20rem;
+    border-radius:20px;
+    padding: 10px 20px;
+}
 .note-list {
     width: 50vw;
     height: 100vw;

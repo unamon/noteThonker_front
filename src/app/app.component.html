@@ -1,5 +1,7 @@
 <h1>NoteThonker</h1>
-
+<div class="search-wrapper">
+    <input class="search-input" id="type-ahead" type="text" placeholder="Query" (keyup)="searchNotes($event)"/>
+</div>
 <div class="note-list">
   <app-note-card *ngFor="let note of notes;" [note]="note" [noteId]="note.id"
   (reqNotes)="executeRequest($event)"
